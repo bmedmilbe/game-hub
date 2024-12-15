@@ -7,7 +7,7 @@ import {
 } from "../components/ui/skeleton";
 const GameCardSkeleton = () => {
   return (
-    <CardRoot width={"236px"} overflow={"hidden"}>
+    <CardRoot>
       <Skeleton height={"157px"} />
 
       <CardBody>
