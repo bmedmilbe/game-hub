@@ -12,6 +12,7 @@ import React from "react";
 import { Game } from "../hooks/useGames";
 import PlatformList from "./PlatformList";
 import Score from "./Score";
+import imageCrop from "../services/image-crop";
 
 interface Props {
   game: Game;
@@ -20,7 +21,7 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <CardRoot overflow={"hidden"}>
-      <Image src={game.background_image} />
+      <Image src={imageCrop(game.background_image)} />
 
       <CardBody>
         <Heading fontSize={"2xl"}>{game.name}</Heading>
