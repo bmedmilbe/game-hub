@@ -11,18 +11,10 @@ const GridGames = () => {
   return (
     <>
       {error && <Text>{error}</Text>}
-      {isLoading && (
-        <SimpleGrid
-          columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
-          gap={2}
-          padding={2}
-        >
-          {skeletons.map((skeleton) => (
-            <GameCardSkeleton key={skeleton} />
-          ))}
-        </SimpleGrid>
-      )}
+
       <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} gap={2} padding={2}>
+        {isLoading &&
+          skeletons.map((skeleton) => <GameCardSkeleton key={skeleton} />)}
         {games.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
