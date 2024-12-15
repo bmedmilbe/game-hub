@@ -4,7 +4,11 @@ interface Props {
   children: ReactNode;
 }
 const GameCardContainer = ({ children }: Props) => {
-  return <Box overflow={"hidden"}>{children}</Box>;
+  return (
+    <Box width={"293px"} overflow={"hidden"}>
+      {children}
+    </Box>
+  );
 };
 
 export default GameCardContainer;
