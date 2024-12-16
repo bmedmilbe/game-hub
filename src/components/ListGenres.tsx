@@ -1,5 +1,13 @@
 import useGenres, { Genre } from "../hooks/useGenres";
-import { Button, HStack, Image, List, Spinner, Text } from "@chakra-ui/react";
+import {
+  Button,
+  Heading,
+  HStack,
+  Image,
+  List,
+  Spinner,
+  Text,
+} from "@chakra-ui/react";
 import imageCrop from "../services/image-crop";
 
 interface Props {
@@ -11,7 +19,11 @@ const ListGenres = ({ onSelect, selectedGenre }: Props) => {
   return (
     <>
       {error && ""}
+      <Heading marginLeft={"15px"} color={"white"} fontSize={"3xl"}>
+        Genres
+      </Heading>
       {isLoading && <Spinner size="xl" />}
+
       <List.Root padding={2} listStyle={"none"}>
         {data.map((genre) => (
           <List.Item key={genre.id} padding={2}>
@@ -20,13 +32,16 @@ const ListGenres = ({ onSelect, selectedGenre }: Props) => {
                 boxSize={"50px"}
                 src={imageCrop(genre.image_background)}
                 borderRadius={4}
+                objectFit={"cover"}
               />
               <Button
                 paddingX={2}
                 onClick={() => onSelect(genre)}
                 fontSize={"25px"}
+                textAlign={"left"}
+                whiteSpace={"normal"}
                 backgroundColor={
-                  selectedGenre?.id == genre.id ? "black" : `blue.900`
+                  selectedGenre?.id == genre.id ? "yellow.900" : `blue.900`
                 }
               >
                 {genre.name}
