@@ -13,6 +13,7 @@ import { Game } from "../hooks/useGames";
 import PlatformList from "./PlatformList";
 import Score from "./Score";
 import imageCrop from "../services/image-crop";
+import Imojis from "./Imojis";
 
 interface Props {
   game: Game;
@@ -24,13 +25,15 @@ const GameCard = ({ game }: Props) => {
       <Image src={imageCrop(game.background_image)} />
 
       <CardBody>
-        <Heading fontSize={"2xl"}>{game.name}</Heading>
-        <HStack justifyContent="space-between">
+        <HStack justifyContent="space-between" alignItems={"unset"}>
           {/* <PlatformList
             platforms={game.parent_platforms.map(({ platform }) => platform)}
           /> */}
+          <Imojis rating={game.rating_top} />
           <Score score={game.metacritic} />
         </HStack>
+        <Heading fontSize={"2xl"}>{game.name}</Heading>
+
         {/* {game.parent_platforms.map(
           ({ platform }) =>
             //   <Text>{Icons[`${platform.slug}`]}</Text>
