@@ -17,13 +17,13 @@ interface Props {
 }
 const ListGenres = ({ onSelect, selectedGenre }: Props) => {
   const { data, error, isLoading } = useGenres();
+  if (error) return "";
+  if (isLoading) return <Spinner size="xl" />;
   return (
     <>
-      {error && ""}
       <Heading marginLeft={"15px"} color={"white"} fontSize={"3xl"}>
         Genres
       </Heading>
-      {isLoading && <Spinner size="xl" />}
 
       <List.Root padding={2} listStyle={"none"}>
         {data.map((genre) => (
