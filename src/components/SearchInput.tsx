@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { InputGroup } from "./ui/input-group";
-import { BsSearch } from "react-icons/bs";
-import { Input, Kbd } from "@chakra-ui/react";
+import { Input } from "@chakra-ui/react";
 import { LuSearch } from "react-icons/lu";
 
 interface Props {

@@ -1,5 +1,4 @@
 import useGenres, { Genre } from "../hooks/useGenres";
-import genres from "../data/genres";
 import {
   Button,
   Heading,
@@ -7,7 +6,6 @@ import {
   Image,
   List,
   Spinner,
-  Text,
 } from "@chakra-ui/react";
 import imageCrop from "../services/image-crop";
 

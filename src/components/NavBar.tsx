@@ -1,4 +1,4 @@
-import { HStack, Image, Text } from "@chakra-ui/react";
+import { Image } from "@chakra-ui/react";
 import logo from "../assets/logo.webp";
 import SearchInput from "./SearchInput";
 interface Props {

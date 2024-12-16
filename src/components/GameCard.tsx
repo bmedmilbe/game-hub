@@ -1,16 +1,5 @@
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  CardRoot,
-  Heading,
-  HStack,
-  Image,
-  Text,
-} from "@chakra-ui/react";
-import React from "react";
+import { CardBody, CardRoot, Heading, HStack, Image } from "@chakra-ui/react";
 import { Game } from "../hooks/useGames";
-import PlatformList from "./PlatformList";
 import Score from "./Score";
 import imageCrop from "../services/image-crop";
 import Imojis from "./Imojis";
