@@ -13,6 +13,7 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  search: string;
 }
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
@@ -26,19 +27,21 @@ function App() {
           lg: `"nav nav" "aside main"`,
         }}
       >
-        <GridItem area="nav" bg="yellow">
+        <GridItem area="nav" bg="blue.800">
           <HStack>
-            <NavBar />
+            <NavBar
+              onSearch={(search) => setGameQuery({ ...gameQuery, search })}
+            />
           </HStack>
         </GridItem>
 
-        <GridItem hideBelow="lg" area="aside">
+        <GridItem hideBelow="lg" area="aside" bg={"blue.800"}>
           <ListGenres
             onSelect={(genre) => setGameQuery({ ...gameQuery, genre })}
             selectedGenre={gameQuery.genre}
           />
         </GridItem>
-        <GridItem area="main" bg="dodgerblue">
+        <GridItem area="main" bg="blue.900">
           <HStack padding={2}>
             <PlatformSelector
               onSelect={(platform) => setGameQuery({ ...gameQuery, platform })}

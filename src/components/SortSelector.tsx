@@ -26,7 +26,12 @@ const SortSelector = ({ selectedOrder, onSelect }: Props) => {
   return (
     <MenuRoot>
       <MenuTrigger asChild>
-        <Button variant="outline" size="sm">
+        <Button
+          variant="outline"
+          size="sm"
+          color={"white"}
+          _hover={{ color: "blue.800" }}
+        >
           {"Order: "}
           {currentOrder?.label || "Relevance"}
           <BsChevronDown />

@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useRef } from "react";
 import { InputGroup } from "./ui/input-group";
 import { BsSearch } from "react-icons/bs";
 import { Input, Kbd } from "@chakra-ui/react";
 import { LuSearch } from "react-icons/lu";
 
-const SearchInput = () => {
+interface Props {
+  onSearch: (input: string) => void;
+}
+
+const SearchInput = ({ onSearch }: Props) => {
+  const ref = useRef<HTMLInputElement>(null);
   return (
-    <InputGroup flex="1" startElement={<LuSearch />}>
-      <Input borderRadius={20} placeholder="Search game..." variant="subtle" />
-    </InputGroup>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        if (ref.current) onSearch(ref.current.value);
+      }}
+    >
+      <InputGroup flex="1" width={"100%"} startElement={<LuSearch />}>
+        <Input
+          ref={ref}
+          borderRadius={20}
+          placeholder="Search game..."
+          variant="subtle"
+        />
+      </InputGroup>
+    </form>
   );
 };
 

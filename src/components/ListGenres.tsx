@@ -26,7 +26,7 @@ const ListGenres = ({ onSelect, selectedGenre }: Props) => {
                 onClick={() => onSelect(genre)}
                 fontSize={"25px"}
                 backgroundColor={
-                  selectedGenre?.id == genre.id ? `blue.800` : "black"
+                  selectedGenre?.id == genre.id ? "black" : `blue.900`
                 }
               >
                 {genre.name}
