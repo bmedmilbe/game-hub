@@ -34,7 +34,11 @@ const SortSelector = ({ selectedOrder, onSelect }: Props) => {
       </MenuTrigger>
       <MenuContent>
         {orders.map((order) => (
-          <MenuItem onClick={() => onSelect(order.value)} value={""}>
+          <MenuItem
+            key={order.label}
+            onClick={() => onSelect(order.value)}
+            value={""}
+          >
             {order.label}
           </MenuItem>
         ))}

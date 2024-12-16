@@ -36,7 +36,7 @@ const PlatformList = ({ platforms }: Props) => {
     <>
       {platforms.map(
         (platform) => (
-          <Text>{platform.name}</Text>
+          <Text key={platform.id}>{platform.name}</Text>
         )
         // <Icon as={Icons[platform.slug]} />
       )}
