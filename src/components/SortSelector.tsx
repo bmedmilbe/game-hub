@@ -9,41 +9,35 @@ import { BsChevronDown } from "react-icons/bs";
 import usePlatforms from "../hooks/usePlatforms";
 import { Platform } from "../hooks/useGames";
 interface Props {
-  onSelect: (plaform: Platform | null) => void;
-  selectedPlatform: Platform | null;
+  onSelect: (order: string) => void;
+  selectedOrder: string;
 }
 
-const SortSelector = ({ selectedPlatform, onSelect }: Props) => {
-  const { data, error } = usePlatforms();
-
-  if (error) return null;
+const SortSelector = ({ selectedOrder, onSelect }: Props) => {
+  const orders = [
+    { value: "", label: "Relevance" },
+    { value: "name", label: "Name" },
+    { value: "-released", label: "Release Date" },
+    { value: "-added", label: "Date added" },
+    { value: "-rating", label: "Average Rating" },
+    { value: "-metacritic", label: "Popularity" },
+  ];
+  const currentOrder = orders.find((order) => order.value === selectedOrder);
   return (
     <MenuRoot>
       <MenuTrigger asChild>
         <Button variant="outline" size="sm">
-          Order: Relevance
+          {"Order: "}
+          {currentOrder?.label || "Relevance"}
           <BsChevronDown />
         </Button>
       </MenuTrigger>
       <MenuContent>
-        <MenuItem onClick={() => onSelect(null)} value={""}>
-          Relevance
-        </MenuItem>
-        <MenuItem onClick={() => onSelect(null)} value={""}>
-          Date added
-        </MenuItem>
-        <MenuItem onClick={() => onSelect(null)} value={""}>
-          Name
-        </MenuItem>
-        <MenuItem onClick={() => onSelect(null)} value={""}>
-          Release Date
-        </MenuItem>
-        <MenuItem onClick={() => onSelect(null)} value={""}>
-          Popularity
-        </MenuItem>
-        <MenuItem onClick={() => onSelect(null)} value={""}>
-          Average Rating
-        </MenuItem>
+        {orders.map((order) => (
+          <MenuItem onClick={() => onSelect(order.value)} value={""}>
+            {order.label}
+          </MenuItem>
+        ))}
       </MenuContent>
     </MenuRoot>
   );
